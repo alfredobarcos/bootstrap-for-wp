@@ -1,4 +1,22 @@
-// Adapted to Bootstrap grid system
+// You need to disable the gallery styles set by WordPress in your functions.php
+
+<?php
+
+if ( ! function_exists( 'remove_wp_gallery_css' ) ) {
+
+	function remove_wp_gallery_css( $css ) {
+		
+		return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
+	}
+}
+
+add_filter( 'gallery_style', 'remove_wp_gallery_css' );
+
+?>
+
+
+
+// Include the following code in your SCSS files structure
 
 .post .gallery,
 .page .gallery {
@@ -18,6 +36,8 @@
 $gallery-columns: ();
 $gallery-columns: map-merge((
 	
+	// Your free the set the col number to the values
+	// In my case I defined that if the editor chooses 5 columns the images are still showed in 4 columns
 	2: 6,
 	3: 4,
 	4: 3,
@@ -34,7 +54,7 @@ $gallery-columns: map-merge((
 @each $value, $col in $gallery-columns {
 	.post .gallery.gallery-columns-#{$value} figure,
 	.page .gallery.gallery-columns-#{$value} figure {
-		@include make-col(6);
+		@include make-col(6); // Col number is up to you.
 	}
 }
 
@@ -43,7 +63,7 @@ $gallery-columns: map-merge((
 	@each $value, $col in $gallery-columns {
 		.post .gallery.gallery-columns-#{$value} figure,
 		.page .gallery.gallery-columns-#{$value} figure {
-			@include make-col(6);
+			@include make-col(6); // Col number is up to you.
 		}
 	}	
 }
@@ -53,7 +73,7 @@ $gallery-columns: map-merge((
 	@each $value, $col in $gallery-columns {
 		.post .gallery.gallery-columns-#{$value} figure,
 		.page .gallery.gallery-columns-#{$value} figure {
-			@include make-col($col);
+			@include make-col($col); // From here on the col number is defined in the map
 		}
 	}	
 }
