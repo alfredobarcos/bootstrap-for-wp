@@ -17,6 +17,7 @@ add_filter( 'gallery_style', 'remove_wp_gallery_css' );
 
 
 // Include the following code in your SCSS files structure
+// Add classes previous to .post and .page if its required to fit into your project
 
 .post .gallery,
 .page .gallery {
