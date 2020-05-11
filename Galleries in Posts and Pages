@@ -55,7 +55,7 @@ $gallery-columns: map-merge((
 @each $value, $col in $gallery-columns {
 	.post .gallery.gallery-columns-#{$value} figure,
 	.page .gallery.gallery-columns-#{$value} figure {
-		@include make-col(6); // Col number is up to you.
+		@include make-col(6); // Col number is up to you. But in this device size all gallery columns are showed the same
 	}
 }
 
@@ -64,7 +64,7 @@ $gallery-columns: map-merge((
 	@each $value, $col in $gallery-columns {
 		.post .gallery.gallery-columns-#{$value} figure,
 		.page .gallery.gallery-columns-#{$value} figure {
-			@include make-col(6); // Col number is up to you.
+			@include make-col(6); // Col number is up to you. But in this device size all gallery columns are showed the same
 		}
 	}	
 }
