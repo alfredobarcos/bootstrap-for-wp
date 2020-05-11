@@ -1,3 +1,3 @@
-# Bootstrap for WordPress
-Useful snippets extending Bootstrap SCSS to your WP development
+# Bootstrap 4 for WordPress
+Useful snippets extending Bootstrap 4 SCSS to your WP development
 
