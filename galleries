@@ -1,16 +1,17 @@
 // Adapted to Bootstrap grid system
 
-article.post .gallery,
-article.page .gallery {
+.post .gallery,
+.page .gallery {
 	@include make-row();
 }
 
-article.post .gallery figure,
-article.page .gallery figure {
+.post .gallery figure,
+.page .gallery figure {
 	@include make-col-ready();
  }
 
-article.post .gallery.gallery-columns-1 figure {
+.post .gallery.gallery-columns-1 figure,
+.page .gallery.gallery-columns-1 figure {
 	@include make-col(12);
 }
 
@@ -31,7 +32,8 @@ $gallery-columns: map-merge((
 );
 
 @each $value, $col in $gallery-columns {
-	article.post .gallery.gallery-columns-#{$value} figure {
+	.post .gallery.gallery-columns-#{$value} figure,
+	.page .gallery.gallery-columns-#{$value} figure {
 		@include make-col(6);
 	}
 }
@@ -39,7 +41,8 @@ $gallery-columns: map-merge((
 @include media-breakpoint-up(sm) { // min-width: 576px
 	
 	@each $value, $col in $gallery-columns {
-		article.post .gallery.gallery-columns-#{$value} figure {
+		.post .gallery.gallery-columns-#{$value} figure,
+		.page .gallery.gallery-columns-#{$value} figure {
 			@include make-col(6);
 		}
 	}	
@@ -48,7 +51,8 @@ $gallery-columns: map-merge((
 @include media-breakpoint-up(md) { // min-width: 768px
 	
 	@each $value, $col in $gallery-columns {
-		article.post .gallery.gallery-columns-#{$value} figure {
+		.post .gallery.gallery-columns-#{$value} figure,
+		.page .gallery.gallery-columns-#{$value} figure {
 			@include make-col($col);
 		}
 	}	
